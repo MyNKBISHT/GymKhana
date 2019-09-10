@@ -18,18 +18,8 @@ var campgroundRoutes = require("./routes/campground");
 var commentRoutes = require("./routes/comments");
 var authRoutes = require("./routes/Auth");
 //mongodb cloud atlas link
-console.log(process.env.DATABASEURL);
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
 mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb://localhost/yelp_camp", {useNewUrlParser: true});
-/*mongoose.connect("mongodb+srv://MayankDB:8475079607@cluster-9iwi5.mongodb.net/test?retryWrites=true&w=majority",{
-	useNewUrlParser: true, 
-	useCreateIndex: true			  
-	}).then(() => {
-	console.log('Connected to DB!');
-}).catch(err => {
-	console.log('ERROR:', err.message);
-});*/
-
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
