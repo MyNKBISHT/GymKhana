@@ -40,8 +40,8 @@ router.post("/campgrounds", function(req, res){
 	var author = {
 		id: req.user._id,
 		username: req.user.username
-	},
-	 newCampgrounds = {name: name, price: price, image: image, description: description, author: author};
+	};
+	var newCampgrounds = {name: name, price: price, image: image, description: description, author: author};
 	Campground.create(newCampgrounds, function(err, newlyCreated){
 		if(err){
 			console.log(err);

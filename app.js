@@ -17,8 +17,16 @@ var seedDB = require("./seeds");
 var campgroundRoutes = require("./routes/campground");
 var commentRoutes = require("./routes/comments");
 var authRoutes = require("./routes/Auth");
+//mongodb cloud atlas link
+mongoose.connect("mongodb+srv://MayankDB:8475079607@cluster-9iwi5.mongodb.net/test?retryWrites=true&w=majority",{
+	useNewUrlParser: true, 
+	useCreateIndex: true			  
+	}).then(() => {
+	console.log('Connected to DB!');
+}).catch(err => {
+	console.log('ERROR:', err.message);
+});
 
-mongoose.connect("mongodb://localhost/yelp_camp", {useNewUrlParser: true});
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -48,4 +56,6 @@ app.use(campgroundRoutes);
 app.use(commentRoutes);
 app.use(authRoutes);
 
-app.listen(process.env.PORT, process.env.IP);
+app.listen(3000 || process.env.PORT, process.env.IP, function(){
+	console.log("YelpCamp Started !!!");
+});
