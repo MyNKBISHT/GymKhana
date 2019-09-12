@@ -19,7 +19,7 @@ var commentRoutes = require("./routes/comments");
 var authRoutes = require("./routes/Auth");
 //mongodb cloud atlas link
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(url, {useNewUrlParser: true});
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.set("view engine", "ejs");

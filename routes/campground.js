@@ -14,7 +14,7 @@ router.get("/campgrounds", function(req, res){
 		}
 	});
 });
-router.get("/campgrounds/form", function(req, res){
+router.get("/campgrounds/form",  function(req, res){
 	res.render("campgrounds/form");
 });
 
@@ -32,7 +32,7 @@ router.get("/campgrounds/:id", middleware.isLoggedIn, function(req, res){
         }
     });
 });
-router.post("/campgrounds",  middleware.checkCampgroundOwnership,  function(req, res){
+router.post("/campgrounds", middleware.isLoggedIn, function(req, res){
     var name = req.body.name;
 	var price = req.body.price;
 	var image = req.body.image;
