@@ -9,10 +9,10 @@
 			<div class="card">
 				<img class="card-img-top" src="<%= user.avatar %>">
 				<a href="mailto:<%= user.email %>"><strong>E-MAIL :</strong> <%= user.email %></a>
-					<% campgrounds.forEach(function(campground){ %>
-					    <h6>
+				        <h6>
 							Campgrounds Created By: <%= user.firstname %>
 					    </h6>
+					<% campgrounds.forEach(function(campground){ %>
 					    <li><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
 					<% }); %>
 			</div>
